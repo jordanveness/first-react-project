@@ -22,6 +22,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <button onClick={() => setIsShown(true)}>
           name
         </button>
         {isShown && <p>Test</p>}
