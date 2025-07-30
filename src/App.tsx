@@ -2,41 +2,8 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-
-type Data = {
-  id: number;
-  name: string;
-  year: number;
-  profession: string;
-};
-
-const names: string[] = ["Jordan", "John", "Jane", "Doe"];
-const data: Data[] = [
-  {
-    id: 1,
-    name: "Jordan",
-    year: 1996,
-    profession: "Doctor",
-  },
-  {
-    id: 2,
-    name: "John",
-    year: 1998,
-    profession: "Engineer",
-  },
-  {
-    id: 3,
-    name: "Jane",
-    year: 1991,
-    profession: "Teacher",
-  },
-  {
-    id: 4,
-    name: "Doe",
-    year: 1990,
-    profession: "Accountant",
-  },
-];
+import EmployeeView from "./components/EmployeeView";
+import { data, names } from "./data";
 
 function App() {
   const [isShown, setIsShown] = useState(false);
@@ -62,12 +29,7 @@ function App() {
         {showEmployee && (
           <div>
             {data.map((employee) => {
-              const { name, profession } = employee;
-              return (
-                <p key={employee.id}>
-                  {name}, {profession}
-                </p>
-              );
+              return <EmployeeView employee={employee} key={employee.id} />;
             })}
           </div>
         )}
